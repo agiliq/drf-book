@@ -1,12 +1,16 @@
-# Expectation from readers
+# Book Name: Building APIs with Django and Django Rest Framework
 
-* Familiarity with Django in general
+*Building APIs to power your mobile and web apps using Django, Django rest framework and other modern tools.*
+
+### Expectation from readers
+
+* Familiarity with Django in general. Should know how ORM, Models and Views work.
 * Familiarity with function based views as well as class based views.
 * No familiarity with REST required
 * No familiarity with Django rest framework required
 
 
-# Chapter 1: [Why use REST]
+## Chapter 1: [Why use REST]
 
 GOAL of this chapter: Why should I bother with REST. Can't I work without REST.
 
@@ -17,26 +21,29 @@ GOAL of this chapter: Why should I bother with REST. Can't I work without REST.
 * A brief discussion about the app we will be developing.
 
 
-# Chapter 2: [Expenses app without REST framework]
+## Chapter 2: [Expenses app without REST framework]
 
 GOAL: Demonstrate the pain involved in writing api endpoints without a REST library.
 
-## Requirement from this app
+We will build an app without using any think other than Django. Plain HttpResponse, json.dumps and validations in views.
+
+### Requirement from this app
 
 * Most basic app. Only one model called Expense.
-* We need ability to create and view expenses from the mobile. So need REST endpoints.
+* We need ability to create and view expenses from the mobile. So we need REST endpoints.
 * Without authentication and authorization
-* Very simple things like basic GET and POST
+* Simple things like GET and POST
 
-## Demonstrate the effort required to do these without DRF
+### Demonstrate the effort required to do these without DRF
 
 * Using model_to_dict and content_type
 * Explicit conversions to json
 * Demonstrate how painful it is without DRF
+* No logically appropriate place for validation
 
-# Chapter 3: [Expenses app with DRF]
+## Chapter 3: [Expenses app with DRF]
 
-GOAL: Give an idea of usefulness of DRF. DRF makes things simpler, maintainable and organised.
+GOAL: Explain usefulness of DRF. DRF makes things simpler, maintainable and organised.
 
 [Step 1]
 * Use JSON handling capabilities of DRF, api_view decorator and a serializer.
@@ -45,18 +52,18 @@ GOAL: Give an idea of usefulness of DRF. DRF makes things simpler, maintainable 
 [Step 2]
 * Only extend from APIView. Doesn't use mixins or generic views here.
 
-# Chapter 4: [Basic expense app]
+## Chapter 4: [Basic expense app]
 
-GOAL: Providing an idea of ModelSerializer, APIView, Request, Response, status codes
+GOAL: Explain ModelSerializer, APIView, Request, Response, status codes
 
 * Basic app: No authentication, no authorization, no relation to other model.
 * Any unauthenticated user can see all the expenses
 * Any unauthenticated user can create an expense
 * Any unauthenticated user can do PUT on expense
 * Any unauthenticated user can do PATCH on expense. Explaining PATCH vs PUT
-* Testing with postman
+* Consuming API with Postman
 
-# Chapter 5: [Authentication and Authorization]
+## Chapter 5: [Authentication and Authorization]
 
 GOAL: Providing security to api endpoints
 
@@ -67,7 +74,7 @@ GOAL: Providing security to api endpoints
 * Keep login view without authentication.
 * Only superusers can POST.
 
-# Chapter 6: [Mixins and Generic Views]
+## Chapter 6: [Mixins and Generic Views]
 
 GOAL: Achieving more with less line of code.
 
@@ -76,7 +83,7 @@ GOAL: Achieving more with less line of code.
 * Extend from generic views
 * Overriding generic view methods
 
-# Chapter 7: [Handling relationships and more authorization]
+## Chapter 7: [Handling relationships and more authorization]
 
 * Add FK from Expense to User
 * Associate logged in user with expense
@@ -85,14 +92,14 @@ GOAL: Achieving more with less line of code.
 [More authorization]
 * A user can only see detail of his expense and work with his expense
 
-# Creating ExpenseCategory and Expense in the same api call
+## Creating ExpenseCategory and Expense in the same api call
 
 * Create associated object in the same api call
 * Api to create many to many relationship: View without a serializer
 * Get all expenses within a category: nested relationship?
 * Keeping some fields read_only. eg: OfferSerializer.offercontextuality
 
-# Complicated things after reading code
+## Complicated things after reading code
 
 * Using ListSerializer
 * Creating multiple instances in a single api call
@@ -101,7 +108,7 @@ GOAL: Achieving more with less line of code.
 * Serializer in detail. serializer.is_valid() flow.
 * Overriding serializer.save() and serializer.is_valid() to achieve extra validations.
 
-# Scenarios
+## Scenarios
 
 * Autopopulate
 * Filtering.
@@ -118,7 +125,7 @@ GOAL: Achieving more with less line of code.
 * Using Serializer instead of ModelSerializer?
 * Using serializer with redis?
 
-# Tools
+## Tools
 
 * Postman
 * Apiary
@@ -129,7 +136,7 @@ GOAL: Achieving more with less line of code.
 * Create a Github repo. Keep comitting at different steps. The way, angular tutorial does.
 
 
-# Modelling
+## Modelling
 
 Tag
 
