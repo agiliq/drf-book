@@ -10,22 +10,22 @@
 * No familiarity with Django rest framework required
 
 
-## Chapter 1: [Why use REST]
+## Chapter 1: [Why use apis]
 
-GOAL of this chapter: Why should I bother with REST. Can't I work without REST.
+GOAL of this chapter: Why should I bother with apis. Can't I work without apis.
 
-* Why and when REST is needed
-	* Why REST needed for mobile apps and not needed for web apps
-	* eg: Zomato web app might not require any REST endpoint. But Zomato mobile app would require it. Explain this example in detail.
+* Why and when apis is needed
+	* Why apis needed for mobile apps and not needed for web apps
+	* eg: Zomato web app might not require any api. But Zomato mobile app would require it. Explain this example in detail.
 
-* A brief discussion about the app we will be developing.
+* A brief discussion about the app we will be developing. We will be developing an app which tracks expenses by users of a company, associates expenses with users, allows categorising expenses etc.
 
 
 ## Chapter 2: [Expenses app without REST framework]
 
 GOAL: Demonstrate the pain involved in writing api endpoints without a REST library.
 
-We will build an app without using any think other than Django. Plain HttpResponse, json.dumps and validations in views.
+We will build an app without using any thing other than Django. Plain HttpResponse, json.dumps and validations in views.
 
 ### Requirement from this app
 
@@ -90,59 +90,24 @@ GOAL: Achieving more with less line of code.
 * Not all attributes of model need to be passed. eg: User doesn't need to be pased explicitly in POST data.
 
 [More authorization]
-* A user can only see detail of his expense and work with his expense
+* A user can only see detail of his expense and can update or delete his expense.
 
 ## Creating ExpenseCategory and Expense in the same api call
 
 * Create associated object in the same api call
-* Api to create many to many relationship: View without a serializer
-* Get all expenses within a category: nested relationship?
-* Keeping some fields read_only. eg: OfferSerializer.offercontextuality
+* Api to create many to many relationship
+* Get all expenses within a category.
+* Keeping some fields read_only.
 
-## Complicated things after reading code
+## Chapter 8: [Viewsets and routers]
+
+* Demonstrate how viewsets and routers handle frequently used operations and further decrease lines of code.
+
+## Chapter 9: [More]
 
 * Using ListSerializer
 * Creating multiple instances in a single api call
-* Using apis with Django forms
-* Running model.clean() in validation before saving
-* Serializer in detail. serializer.is_valid() flow.
-* Overriding serializer.save() and serializer.is_valid() to achieve extra validations.
-
-## Scenarios
-
-* Autopopulate
-* Filtering.
+* Serializer in detail. Overriding serializer.save(), serializer.validate() etc to achieve extra validations.
+* Running model validations before serializer save
+* Filtering queryset in GET call
 * Only get few fields instead of all fields
-* Default Validations
-* Extra validations
-* Run model validations before saving
-
-# Method overrides
-
-# Questions
-
-* Mixing modelforms and apiviews?
-* Using Serializer instead of ModelSerializer?
-* Using serializer with redis?
-
-## Tools
-
-* Postman
-* Apiary
-
-* Advantages
-	* Even web apps should use REST endpoints instead of talking to db directly.
-	* Will tell if the endpoints are well consumable.
-* Create a Github repo. Keep comitting at different steps. The way, angular tutorial does.
-
-
-## Modelling
-
-Tag
-
-ExpenseCategory
-
-Expense
-	FK to User
-	FK to ExpenseCategory
-	ManyToMany to Tag
